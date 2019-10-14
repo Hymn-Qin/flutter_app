@@ -30,11 +30,8 @@
 /build/
 
 # Android related
-**/android/**/gradle-wrapper.jar
 **/android/.gradle
 **/android/captures/
-**/android/gradlew
-**/android/gradlew.bat
 **/android/local.properties
 
 # iOS/XCode related
@@ -69,5 +66,3 @@
 !**/ios/**/default.pbxuser
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-assets/images/2.0x/
-assets/images/3.0x/
