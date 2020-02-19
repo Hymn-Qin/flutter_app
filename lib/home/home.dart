@@ -1,7 +1,7 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_app/login/loginPage.dart';
+import 'package:flutter_app/login/login.dart';
 import 'package:flutter_app/other/save.dart';
 
 //StatefulWidget

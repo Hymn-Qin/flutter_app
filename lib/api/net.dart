@@ -7,7 +7,8 @@ BaseOptions _options = new BaseOptions(
 Dio _dio = new Dio(_options);
 
 void setInterceptors() {
-  _dio.interceptors.add(InterceptorsWrapper(onRequest: (RequestOptions options) {
+  _dio.interceptors
+      .add(InterceptorsWrapper(onRequest: (RequestOptions options) {
     //发送请求之前 return options
     return _dio.resolve("可以返回假数据");
   }, onResponse: (Response response) {
@@ -37,7 +38,7 @@ class InterceptorNetwork extends Network {
 
   //POST FORM DATA
   static Future postFormData(String url, Map<String, dynamic> data) async {
-    FormData formData = new FormData.from(data);
+    FormData formData = new FormData.fromMap(data);
     var response = await _dio.post(url, data: formData,
         onSendProgress: (int sent, int total) {
       //上传进度
@@ -53,7 +54,7 @@ class InterceptorNetwork extends Network {
   static Future uploadingFile(
       String url, Map<String, dynamic> data, Map<String, String> files) async {
     files.forEach((fileName, path) =>
-        data['file'] = new UploadFileInfo(new File(path), fileName));
+        data['file'] = MultipartFile.fromFile(path, filename: fileName));
     return postFormData(url, data);
   }
 
@@ -62,7 +63,7 @@ class InterceptorNetwork extends Network {
       String url, Map<String, dynamic> data, Map<String, String> files) async {
     data['files'] = [];
     files.forEach((fileName, path) =>
-        data['files'].add(new UploadFileInfo(new File(path), fileName)));
+        data['files'].add(MultipartFile.fromFile(path, filename: fileName)));
     return postFormData(url, data);
   }
 

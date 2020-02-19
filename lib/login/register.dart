@@ -40,13 +40,16 @@ class _RegisterPage extends State<RegisterPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("注册"),
+        title: Text(
+          "注册",
+          style: TextStyle(fontFamily: 'Flamante'),
+        ),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            TextField(
+            TextFormField(
 //              autofocus: true,
               decoration: InputDecoration(
                   labelText: "用户名",
@@ -55,15 +58,17 @@ class _RegisterPage extends State<RegisterPage> {
               controller: _nameController,
               focusNode: _nameFocusNode,
             ),
-            TextField(
+            TextFormField(
               decoration: InputDecoration(
-                  labelText: "密码",
-                  hintText: "请输入密码",
-                  prefixIcon: Icon(Icons.lock)),
+                labelText: "密码",
+                labelStyle: TextStyle(color: Colors.blue),
+                hintText: "请输入密码",
+                prefixIcon: Icon(Icons.lock, color: Colors.blue),
+              ),
               focusNode: _pswFocusNode,
             ),
             Container(
-              child: TextField(
+              child: TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                     labelText: "Email",

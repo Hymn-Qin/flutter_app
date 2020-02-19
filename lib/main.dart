@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'home/homePage.dart';
-import 'login/loginPage.dart';
-import 'login/registerPage.dart';
+import 'home/bottom_bar.dart';
+import 'home/home.dart';
+import 'login/login.dart';
+import 'login/register.dart';
 import 'other/save.dart';
 
 Color white = const Color(0xFFFFFFFF); //16进制的ARGB  Colors.white
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
             primarySwatch: Colors.grey, //主题颜色
-            primaryColor: white),
-        home: HomePage(title: '首页'),
+            primaryColor: white,
+            cardColor: blue),
+        home: BottomAppBarTab(),
         //命名路由 注册路由表
         //优点：
         //1.语义化更明确。
@@ -101,7 +103,7 @@ void main() {
     var details = _makeDetails(obj, stack);
     _reportErrorAndLog(details);
   });
-//Zone表示一个代码执行的环境范围，为了方便理解，读者可以将Zone类比为一个代码执行沙箱，
+//Zone 表示一个代码执行的环境范围，为了方便理解，读者可以将Zone类比为一个代码执行沙箱，
 // 不同沙箱的之间是隔离的，沙箱可以捕获、拦截或修改一些代码行为，
 // 如Zone中可以捕获日志输出、Timer创建、微任务调度的行为，同时Zone也可以捕获所有未处理的异常
 } //应用入口main函数
